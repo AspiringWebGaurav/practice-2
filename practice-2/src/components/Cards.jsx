@@ -1,62 +1,41 @@
-/* This code snippet is a React component that creates a set of cards using the Card and CardGroup
-components from the react-bootstrap library. */
-import React from 'react';
-import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/CardGroup';
+import React from 'react'
 
 const Cards = () => {
   return (
-    <div>
-      <GroupExample />
-    </div>
-  );
-};
+    <div className="min-h-screen p-4">
+      {/* Cards container - 80vh */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-[80vh]">
+        {/* Increase Card */}
+        <div className="h-full bg-green-500 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
+          <h2 className="text-2xl font-bold text-white mb-4">Increase</h2>
+          <button className="bg-white text-green-500 px-6 py-2 rounded-full hover:bg-green-100 transition-colors">
+            +
+          </button>
+        </div>
 
-function GroupExample() {
-  return (
-    <CardGroup>
-      <Card>
-        <Card.Img variant="top" src="holder.js/100px160" />
-        <Card.Body>
-          <Card.Title>Card title</Card.Title>
-          <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">Last updated 3 mins ago</small>
-        </Card.Footer>
-      </Card>
-      <Card>
-        <Card.Img variant="top" src="holder.js/100px160" />
-        <Card.Body>
-          <Card.Title>Card title</Card.Title>
-          <Card.Text>
-            This card has supporting text below as a natural lead-in to
-            additional content.
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">Last updated 3 mins ago</small>
-        </Card.Footer>
-      </Card>
-      <Card>
-        <Card.Img variant="top" src="holder.js/100px160" />
-        <Card.Body>
-          <Card.Title>Card title</Card.Title>
-          <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This card has even longer content than the
-            first to show that equal height action.
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">Last updated 3 mins ago</small>
-        </Card.Footer>
-      </Card>
-    </CardGroup>
-  );
+        {/* Count Card */}
+        <div className="h-full bg-blue-500 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
+          <h2 className="text-2xl font-bold text-white mb-4">Count</h2>
+          <span className="text-4xl font-bold text-white">0</span>
+        </div>
+
+        {/* Decrease Card */}
+        <div className="h-full bg-red-500 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
+          <h2 className="text-2xl font-bold text-white mb-4">Decrease</h2>
+          <button className="bg-white text-red-500 px-6 py-2 rounded-full hover:bg-red-100 transition-colors">
+            -
+          </button>
+        </div>
+      </div>
+
+      {/* Reset Button - 20vh and full width */}
+      <div className="h-[15vh] w-full">
+        <button className="w-full h-full bg-gray-800 text-white text-2xl font-bold rounded-lg hover:bg-gray-700 transition-colors">
+          Reset
+        </button>
+      </div>
+    </div>
+  )
 }
 
-export default Cards;
+export default Cards
