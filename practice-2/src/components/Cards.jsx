@@ -1,19 +1,22 @@
 import React, { useState, useRef } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
+import { useSelector, useDispatch } from 'react-redux'
+import { increment, decrement, reset, incrementByAmount } from '../redux/slices/index.js'
 
 const Cards = () => {
-  const [count, setCount] = useState(0);
+  const counter = useSelector((state) => state.counter.value)
+  const dispatch = useDispatch();
   const [isAnimating, setIsAnimating] = useState(false);
   const countIntervalRef = useRef(null);
 
   const handleCount = (type) => {
     setIsAnimating(true);
     if (type === "increase") {
-      setCount((prev) => prev + 1);
+      dispatch(increment());
     } else if (type === "decrease") {
-      setCount((prev) => prev - 1);
+      dispatch(decrement());
     } else {
-      setCount(0);
+      dispatch(reset());
     }
     setTimeout(() => setIsAnimating(false), 300);
   };
@@ -66,7 +69,7 @@ const Cards = () => {
             className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-white transition-transform duration-300
               ${isAnimating ? "animate-count-change" : ""}`}
           >
-            {count}
+            {counter}
           </span>
         </div>
 
