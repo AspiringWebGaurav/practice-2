@@ -36,8 +36,8 @@ const Cards = () => {
 
   return (
     <div className="h-screen flex flex-col p-4">
-      {/* Cards container - now using flex-grow instead of fixed height */}
-      <div className="flex-grow grid grid-cols-1 md:grid-cols-3 gap-4">
+      {/* Cards container */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-[80vh]">
         {/* Increase Card */}
         <div className="h-full bg-green-500 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4">
@@ -90,8 +90,8 @@ const Cards = () => {
         </div>
       </div>
 
-      {/* Reset Button - now using h-20 instead of 20vh */}
-      <div className="h-20 mt-1">
+      {/* Reset Button */}
+      <div className="h-[20vh] mt-1">
         <button
           onClick={() => handleCount("reset")}
           className="w-full h-full bg-gray-800 text-white text-xl sm:text-2xl lg:text-3xl font-bold 
