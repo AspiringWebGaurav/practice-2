@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react'
-import { FaPlus, FaMinus } from 'react-icons/fa'
+import React, { useState, useRef } from "react";
+import { FaPlus, FaMinus } from "react-icons/fa";
 
 const Cards = () => {
   const [count, setCount] = useState(0);
@@ -8,10 +8,10 @@ const Cards = () => {
 
   const handleCount = (type) => {
     setIsAnimating(true);
-    if (type === 'increase') {
-      setCount(prev => prev + 1);
-    } else if (type === 'decrease') {
-      setCount(prev => prev - 1);
+    if (type === "increase") {
+      setCount((prev) => prev + 1);
+    } else if (type === "decrease") {
+      setCount((prev) => prev - 1);
     } else {
       setCount(0);
     }
@@ -35,17 +35,19 @@ const Cards = () => {
   };
 
   return (
-    <div className="min-h-screen p-4">
-      {/* Cards container - 80vh */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-[80vh]">
+    <div className="h-screen flex flex-col p-4">
+      {/* Cards container - now using flex-grow instead of fixed height */}
+      <div className="flex-grow grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Increase Card */}
         <div className="h-full bg-green-500 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4">Increase</h2>
-          <button 
-            onMouseDown={() => startCounting('increase')}
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4">
+            Increase
+          </h2>
+          <button
+            onMouseDown={() => startCounting("increase")}
             onMouseUp={stopCounting}
             onMouseLeave={stopCounting}
-            onTouchStart={() => startCounting('increase')} // For mobile
+            onTouchStart={() => startCounting("increase")}
             onTouchEnd={stopCounting}
             className="bg-white text-green-500 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full 
               hover:bg-green-100 transition-colors flex items-center justify-center active:scale-95 
@@ -56,11 +58,13 @@ const Cards = () => {
         </div>
 
         {/* Count Card */}
-        <div className="h-full bg-blue-500 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center overflow-hidden">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4">Count</h2>
-          <span 
+        <div className="h-full bg-blue-500 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4">
+            Count
+          </h2>
+          <span
             className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-white transition-transform duration-300
-              ${isAnimating ? 'animate-count-change' : ''}`}
+              ${isAnimating ? "animate-count-change" : ""}`}
           >
             {count}
           </span>
@@ -68,12 +72,14 @@ const Cards = () => {
 
         {/* Decrease Card */}
         <div className="h-full bg-red-500 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4">Decrease</h2>
-          <button 
-            onMouseDown={() => startCounting('decrease')}
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4">
+            Decrease
+          </h2>
+          <button
+            onMouseDown={() => startCounting("decrease")}
             onMouseUp={stopCounting}
             onMouseLeave={stopCounting}
-            onTouchStart={() => startCounting('decrease')} // For mobile
+            onTouchStart={() => startCounting("decrease")}
             onTouchEnd={stopCounting}
             className="bg-white text-red-500 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full 
               hover:bg-red-100 transition-colors flex items-center justify-center active:scale-95
@@ -84,11 +90,12 @@ const Cards = () => {
         </div>
       </div>
 
-      {/* Reset Button - 20vh and full width */}
-      <div className="h-[20vh] w-full">
-        <button 
-          onClick={() => handleCount('reset')}
-          className="w-full h-full bg-gray-800 text-white text-xl sm:text-2xl lg:text-3xl font-bold rounded-lg hover:bg-gray-700 transition-colors active:scale-95"
+      {/* Reset Button - now using h-20 instead of 20vh */}
+      <div className="h-20 mt-1">
+        <button
+          onClick={() => handleCount("reset")}
+          className="w-full h-full bg-gray-800 text-white text-xl sm:text-2xl lg:text-3xl font-bold 
+            rounded-lg hover:bg-gray-700 transition-colors active:scale-95"
         >
           Reset
         </button>
@@ -98,7 +105,7 @@ const Cards = () => {
 };
 
 // Add this at the top of your file or in your global CSS
-const style = document.createElement('style');
+const style = document.createElement("style");
 style.textContent = `
   @keyframes countChange {
     0% {
